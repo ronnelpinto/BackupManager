@@ -1,6 +1,9 @@
-This project aims to make a Backup manager for Linux using Python3.
-The project is done as a part of the Python lab course.
-The project aims to develop a Backup manager which will give the user option to backup a particular directory to another drive or folder.
-He can also select the files to backup and thus it provides more flexibility.
-The backed up files are stored in compressed and stored in the backup folder
-Plan to also make a GUI for the user to interact with the backup manager
+BackUp manager for Linux using Python3.
+1. The project aims to develop a Backup manager which will give the user option to backup a particular directory to another drive or folder.
+2. User can also select the files to backup and thus it provides more flexibility.
+3. The backed up files are stored in compressed and stored in the backup folder
+4. An interactive GUI written using tkinter library is also incorporated for easy usage
+
+Installation:
+1. Clone / Download the project
+2. Open shell/terminal and run "main.py". (Python3 needs to be installed is the only pre requisite)
