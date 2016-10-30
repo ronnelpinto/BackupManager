@@ -4,8 +4,6 @@ from tkinter import messagebox as box
 from backup import *
 from setupfordatabase import *
 
-
-
 class MainWIndow(Frame):        #the Main Frame class having instances of all the classes
     def __init__(self, parent):
         Frame.__init__(self, parent, background='#eed')

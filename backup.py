@@ -2,8 +2,6 @@ print("A program that backs up a list of files/folders into a zip/tar archive")
 import os
 import time
 
-
-
 source_dir=[]   #to store list of all files/folders in the directory
 error_flag=1    #error flag to check if backup is successful or not
 
@@ -16,7 +14,6 @@ class Backup:
         self.TargetFolder=TargetFolder
         self.CompressionType=CompressionType
         source_dir=list(self.inputFolder)
-
         
     def implementation(self):
         cwd=self.inputFolder

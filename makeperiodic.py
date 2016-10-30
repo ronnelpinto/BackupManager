@@ -1,4 +1,5 @@
 import os
+# run updatedb.py for every 10 secs to backup modified files
 os.system('''
 (
   while true
@@ -8,4 +9,3 @@ os.system('''
   done
 ) &
 disown''')
-# run updatedb.py for every 10 secs to backup modified files
