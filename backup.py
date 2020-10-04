@@ -1,57 +1,56 @@
-print("Python program to back up a list of files/folders into a zip/tar archive")
+print("Python program to back up a list of files/folders into a zip or tar archive")
 import os
 import time
 
-source_dir=[]   # to store list of all files/folders in the directory
-error_flag=1    # error flag to check if backup is successful or not
+source_dir = []   # list of all files/folders
+error_flag = 1    # error flag for backup
 
 class Backup:
     def __init__(self,inputFolder,ext_flag,Extension,files,TargetFolder,CompressionType):
-        self.inputFolder=inputFolder
-        self.ext_flag=ext_flag
-        self.Extension=Extension
-        self.files=files
-        self.TargetFolder=TargetFolder
-        self.CompressionType=CompressionType
-        source_dir=list(self.inputFolder)
+        self.inputFolder = inputFolder
+        self.ext_flag = ext_flag
+        self.Extension = Extension
+        self.files = files
+        self.TargetFolder = TargetFolder
+        self.CompressionType=  CompressionType
+        source_dir = list(self.inputFolder)
 
         
     def implementation(self):
-        cwd=self.inputFolder
+        cwd = self.inputFolder
         try:
-                os.chdir(cwd) # Changes the working directory to the source's so that explicit declaration of directory not needed
+                os.chdir(cwd) # Changes the working directory to source
         except:
-                os.chdir(os.getcwd()) # If on present directory and the user doesn't give any input,
-                cwd=os.getcwd() # natively assign cwd to the current directory itself
-        print ('The list of files/folders present in',os.getcwd())
+                os.chdir(os.getcwd()) # If on present directory and no user input, then assign cwd to the current directory
+                cwd = os.getcwd()
+        print ('The list of files/folders present in ', os.getcwd())
 
-        direct=os.listdir(cwd)
-        os.system('ls') # Gives the list of all files/folders so that user need not use a separate filemanager to know which
-                              # files/folders to backup
+        cur_dir = os.listdir(cwd)
+        os.system('ls') # Gives the list of all files/folders
                          
         if self.ext_flag =='true' :
-                flag=0 # taking a flag to know whether the user has given the correct extension
-                dor=[] # creating an empty list to append the files that have the
-                for ory in direct: # user's required extension
-                        if str(self.Extension) in ory:
-                                dor.append(ory)
+                flag = 0 # flag for correct extension check
+                dor = [] # empty list to append the files that have the user's extensions
+                for item in cur_dir:
+                        if str(self.Extension) in item:
+                                dor.append(item)
                                 flag = 1
                 if flag == 0:
-                        print ('Sorry!! No file with the specified extension exists.')
+                        print ('Sorry, No file with the specified extension exists in the selected directory.')
                         os.system('ls')
                 else: # If flag is not 0, means it's 1 and that means the list 'dor' is not empty.
-                        direct = dor[:] # which means it contains the list of filenames that end with the req extension
+                        cur_dir = dor[:] # which means it contains the list of filenames that end with the req extension
                         print ('Files with the extension %s are:' % self.Extension) # So the list 'dor' is copied to direct
-                        for di in direct:
+                        for di in cur_dir:
                                 print (di,'\t')
                         print()
 
         if self.files == 'all':
-                d=direct[:]
-                strng=''
+                d = cur_dir[:]
+                file_list=''
                 for fold in d: # Let the list of all files/folders in the directory be backed up
-                        strng = strng + ' ' + fold
-                source_dir.append(strng)
+                        file_list = file_list + ' ' + fold
+                source_dir.append(file_list)
                 
         else:
                 source_dir.append(s) # Only the files/folders specified by the user are backed up
