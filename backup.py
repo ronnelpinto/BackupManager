@@ -1,11 +1,9 @@
-print("A program that backs up a list of files/folders into a zip/tar archive")
+print("Python program to back up a list of files/folders into a zip/tar archive")
 import os
 import time
 
-
-
-source_dir=[]   #to store list of all files/folders in the directory
-error_flag=1    #error flag to check if backup is successful or not
+source_dir=[]   # to store list of all files/folders in the directory
+error_flag=1    # error flag to check if backup is successful or not
 
 class Backup:
     def __init__(self,inputFolder,ext_flag,Extension,files,TargetFolder,CompressionType):
@@ -31,7 +29,7 @@ class Backup:
         os.system('ls') # Gives the list of all files/folders so that user need not use a separate filemanager to know which
                               # files/folders to backup
                          
-        if self.ext_flag =='yes' :
+        if self.ext_flag =='true' :
                 flag=0 # taking a flag to know whether the user has given the correct extension
                 dor=[] # creating an empty list to append the files that have the
                 for ory in direct: # user's required extension
@@ -85,7 +83,7 @@ class Backup:
                         else:
                                 target=now+'_'+comment.replace(' ', '_')+'.tar'
         else:
-                comment="this is a backup"  #default comment to add to a backup file
+                comment="This is a backup"  #default comment to add to a backup file
                 
                 if len(comment) == 0:
                         if arch=='zip':
@@ -116,7 +114,7 @@ class Backup:
         else:
                 tar_command = "tar -czf %s %s" % (target, ' '.join(source_dir))
                 if os.system(tar_command) == 0:
-                        print ('Backup Successful!! :)')
+                        print ('Backup Successful!')
                         print ('Your backup file is @ %s' % target)
 
                 else:
@@ -131,9 +129,10 @@ def initialise(inputFolder,ext_flag,Extension,files,TargetFolder,CompressionType
     
     c=len(Extension.strip("\n"))   #check if user has specified an extension
     if c==0:
-        ext_flag="no"              
+        ext_flag="false"
+        print ('User has not specified extension - Use default')
     else:
-        ext_flag="yes"
+        ext_flag="true"
     a=Backup(inputFolder.strip("\n"),ext_flag.strip("\n"),Extension.strip("\n"),files.strip("\n"),TargetFolder.strip("\n"),CompressionType.strip("\n"))
     a.implementation()
     
