@@ -1,18 +1,12 @@
 from gui import *;
 
-
-
+'''
+This is the main method to run this BackupManager code in Linux.
 '''
 
-USN'S NAMES N A para summary
-
-
-
-'''
 try:
-    main() #The main method which invokes the GUI thus starting the execution
-
-except Exception as e: #appropriate error handling to deal with unexpected runtime errors
+    main()
+except Exception as e:
     print(e)
 finally:
-    print("Program successsfully executed")
+    print("Successsfully executed")
