@@ -1,14 +1,22 @@
+# Note: this piece of code NEEDS TO BE made universal. Currently the directory path and DB name are hardcoded. Contributors would need to create a similar directory name BUT it would be great if they can make this generic.
+
 import os
 import pymysql as pm
 import time
 modified=[] # to hold list of modified file details
+
 def retrievefrmDB():
-	#address of directory which needs to be looked up periodically and create backup for every modified file
+	# Directory path - NEED TO CHANGE TO BE MORE GENERIC Issue #8
 	os.chdir(os.getenv("HOME")+'/Python - Lab')
+	
+	# DB / Server - NEED TO CHANGE TO BE MORE GENERIC Issue #8
 	con = pm.connect(host='localhost',user="root",passwd='akkaa') #connect to the database, replace 'akkaa' by your mysql password
 	cur = con.cursor()
+	
+	# Create if DB does not exist  Issue #8
 	cur.execute("use backup") # get into 'backup' database
 	qry="select * from backList"
+	
 	cur.execute(qry) # querry against the database to retrieve all the file information
 	myList=cur.fetchall() # to list the files in myList
 	global modified
