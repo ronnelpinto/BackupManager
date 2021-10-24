@@ -4,9 +4,9 @@ os.system('''
   while true
   do
     python3 updatedb.py
-    sleep 20
+    sleep 50
   done
 ) &
 disown''')
-# run updatedb.py for every 10 secs to backup modified files
-# fix wait issue by increasing wait to 20 sec from 10 sec.
+# run updatedb.py for every 50 secs to backup modified files
+# fix wait issue by increasing wait to 50 sec from 20 sec.
