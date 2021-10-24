@@ -30,15 +30,15 @@ class MainWindow(Frame): # Main Frame class
         
     def initQuitButton(self):# initialises the Quit button
         quitButton = Button(self, text = "Quit", command = self.quit)
-        quitButton.place(relx = 0.40, rely = 0.9, relwidth = 0.2)
+        quitButton.place(relx = 0.70, rely = 0.95, relwidth = 0.3)
 
     def initScheduleButton(self):# initialises the Schedule button
         quitButton = Button(self, text = "Schedule to run\n backup periodically\n on working directory", command = self.invokeScheduler)
-        quitButton.place(relx = 0.20, rely = 0.7, relwidth = 0.5)    
+        quitButton.place(relx = 0.30, rely = 0.8, relwidth = 0.4)    
         
     def initBackupButton(self):# initialises the Generate table button
         genButton = Button(self, text = "Backup", command = self.invokebackup)
-        genButton.place(relx = 0.10, rely = 0.9, relwidth = 0.2)
+        genButton.place(relx = 0.15, rely = 0.95, relwidth = 0.22)
         
     def initInputFolder(self, textParam=''):  # text area to enter input folder
         self.inputFolder = Text(self)
